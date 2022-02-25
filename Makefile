@@ -7,8 +7,8 @@ m:
 l:
 	gcc -fPIC -c poly1305.c -o poly1305.o
 	gcc -shared -Wl,-soname,libbitcoinp.so.0 -o libbitcoinp.so.0 poly1305.o -lc
-	sudo cp -uf libbitcoinp.so.0 /usr/local/lib
-	sudo ldconfig
+	cp -uf libbitcoinp.so.0 /usr/local/lib
+	ldconfig
 
 clean:
 	rm -rf *.out *.o
