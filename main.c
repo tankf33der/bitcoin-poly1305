@@ -12,6 +12,7 @@ int main(void) {
     ARRAY(in , 32);
     ARRAY(key, 32);
 
+	poly1305_auth(out, in,  0, key);
 	poly1305_auth(out, in, 32, key);
 
 	return 0;
