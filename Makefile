@@ -4,6 +4,11 @@ a:
 	gcc -DHAVE_ENDIAN_H -fsanitize=address,undefined *.c && ./a.out
 m:
 	gcc -DHAVE_ENDIAN_H -fsanitize=memory *.c && ./a.out
+l:
+	gcc -fPIC -c poly1305.c -o poly1305.o
+	gcc -shared -Wl,-soname,libbitcoinp.so.0 -o libbitcoinp.so.0 poly1305.o -lc
+	sudo cp -uf libbitcoinp.so.0 /usr/local/lib
+	sudo ldconfig
 
 clean:
 	rm -rf *.out *.o
